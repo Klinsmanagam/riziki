@@ -1,0 +1,13 @@
+export class Product
+{
+	name = ' ';
+	link = ' ';
+	one : One;
+	qtty = ' ';
+}
+export class One
+{
+	name = '';
+	price = '';
+	sku = '';
+}

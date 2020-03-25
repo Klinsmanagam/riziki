@@ -1,0 +1,74 @@
+<ion-header>
+	<ion-toolbar id="tool">
+    	<button ion-button  menuToggle>
+	      <ion-icon name="menu"></ion-icon>
+	    </button>
+    <ion-title text-center
+      style="font-size: 36px;
+       letter-spacing: 3px;">Riziki</ion-title>
+    <ion-buttons end padding>
+			<button ion-button icon-left (click)="toSearch()" style="font-size: 18px;">
+				<ion-icon name="search" style="font-size: 36px;"></ion-icon>
+			</button>
+			    <button ion-button icon-left (click)="toCart()" style="font-size: 18px;">
+			      <ion-icon name="cart" style="font-size: 36px;"></ion-icon>
+			      {{ total }}
+			    </button>
+			</ion-buttons>
+</ion-toolbar>
+
+
+<ion-toolbar style="background-color:  #fff8e1;">
+    <!-- <ion-searchbar
+	  [showCancelButton]="shouldShowCancel"
+	  (ionInput)="onInput($event)"
+	  (ionCancel)="onCancel($event)">
+	</ion-searchbar> -->
+    <ion-buttons right>
+    	<button ion-button  icon-only (click)="category()">
+	      <ion-icon name="list-box" style="font-size: 36px;"></ion-icon>
+	    </button>
+		<button ion-button  icon-only (click)="filters()">
+	      <ion-icon name="funnel" style="font-size: 36px;"></ion-icon>
+	    </button>
+	    <button ion-button icon-only (click)="toGrid()">
+      		<ion-icon name="apps" style="font-size: 36px;"></ion-icon>
+    	</button>
+    </ion-buttons>
+	</ion-toolbar>
+
+</ion-header>
+<ion-content>
+
+	<!--<ion-card>
+		<img src="../assets/images.jpeg">
+	</ion-card> -->
+	  <ion-grid >
+    	<ion-row *ngFor="let one of products">
+			<ion-col col-md-12>
+				<ion-card padding>
+
+						<div style="float: left">
+							<img src="{{ one.photo }}"
+							style="width: 100px; height: 115px">
+						</div>
+						&nbsp;
+						&nbsp;
+						&nbsp;
+						&nbsp;
+						<ion-card-title>
+							<h3>{{ one.name }}</h3>
+						</ion-card-title>
+
+						<button ion-button medium
+							 (click)="detail($event, one)" icon-end>
+								BUY NOW
+								<ion-icon name="cart" ></ion-icon>
+						</button>
+
+				</ion-card>
+			</ion-col>
+     </ion-row>
+    </ion-grid>
+
+</ion-content>

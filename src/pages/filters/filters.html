@@ -1,0 +1,70 @@
+<ion-header>
+	<ion-navbar>
+    <button ion-button icon-only menuToggle (click)="back()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+
+    <ion-title>
+      Filters
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button>
+        APPLY
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<button ion-button full (click)="showHide1 = !showHide1" icon-end>
+		Brands
+		<ion-icon name="arrow-dropdown"></ion-icon>
+		</button>
+	<div *ngIf="showHide1 == true">
+		<div *ngFor="let brand of brands" 
+		  style="border-style: solid; border-top: none; border-bottom: none;
+		  		border-width: 1px; ">
+			<ion-item>
+				<ion-label> {{ brand }} </ion-label>
+			 	<ion-checkbox></ion-checkbox>
+			 
+		 	</ion-item>
+		</div>
+	</div>
+	<button ion-button full (click)="showHide2 = !showHide2" icon-end>
+		Weight
+		<ion-icon name="arrow-dropdown"></ion-icon>
+		</button>
+	<div *ngIf="showHide2 == true">
+		<div *ngFor="let one of weight" 
+		  style="border-style: solid; border-top: none; border-bottom: none;
+		  		border-width: 1px; ">
+			<ion-item>
+				<ion-label> {{ one }} </ion-label>
+			 	<ion-checkbox></ion-checkbox>
+			 
+		 	</ion-item>
+		</div>
+	</div>
+	<button ion-button full (click)="showHide3 = !showHide3" icon-end>
+		Litres
+		<ion-icon name="arrow-dropdown"></ion-icon>
+		</button>
+	<div *ngIf="showHide3 == true">
+		<div *ngFor="let lit of litres" 
+		  style="border-style: solid; border-top: none; border-bottom: none;
+		  		border-width: 1px; ">
+			<ion-item>
+				<ion-label> {{ lit }} </ion-label>
+			 	<ion-checkbox></ion-checkbox>
+			 
+		 	</ion-item>
+		</div>
+	</div>
+
+		
+		
+	
+
+</ion-content>

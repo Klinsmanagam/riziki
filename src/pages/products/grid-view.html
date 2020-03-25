@@ -1,0 +1,55 @@
+<ion-header>
+	<ion-toolbar style="background:  #ffc107;">
+    	<button ion-button  menuToggle>
+	      <ion-icon name="menu"></ion-icon>
+	    </button>
+    <ion-title text-center
+      style="font-size: 36px;
+       letter-spacing: 3px;">Riziki</ion-title>
+    <ion-buttons end padding>
+    <button ion-button icon-left (click)="toCart()" style="font-size: 16px;">
+      <ion-icon name="cart" style="font-size: 36px;"></ion-icon>
+      {{ total }}
+    </button>
+</ion-buttons>
+</ion-toolbar>
+    <ion-toolbar style="background-color:  #fff8e1;">
+   <ion-buttons right>
+    	<button ion-button  icon-only (click)="category()">
+	      <ion-icon name="list-box" style="font-size: 36px;"></ion-icon>
+	    </button>
+		<button ion-button  icon-only (click)="filters()">
+	      <ion-icon name="funnel" style="font-size: 36px;"></ion-icon>
+	    </button>
+	    <button ion-button icon-only (click)="goToList()">
+      		<ion-icon name="apps" style="font-size: 36px;"></ion-icon>
+    	</button>
+    </ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-card>
+		<img src="./assets/slide41.jpg">
+	</ion-card>
+	<ion-grid>
+    	<ion-row justify-content-center>
+			<ion-col col-6 *ngFor="let product of products">
+				<ion-card class="text-center">
+						<img src="{{ product.photo }}"
+							style="width: 80px; height: 100px">
+						<ion-card-header>
+							<p>{{ product.name }}</p>
+						</ion-card-header>
+
+							<button ion-button medium
+							 (click)="detail($event, product)" icon-end>
+								add to cart
+								<ion-icon name="cart" ></ion-icon>
+							</button>
+
+				</ion-card>
+			</ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

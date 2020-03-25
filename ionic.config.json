@@ -1,0 +1,8 @@
+{
+  "name": "rizikiApp",
+  "app_id": "a6663c1a",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

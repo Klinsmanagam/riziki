@@ -1,0 +1,70 @@
+<ion-header>
+	<ion-toolbar>
+    	<button ion-button  menuToggle (click)="back()">
+	      <ion-icon name="menu" style="font-size: 36px;"></ion-icon>
+	    </button>
+    <ion-title text-center>Riziki</ion-title>
+    <ion-buttons right padding>
+    <button ion-button icon-only >
+      <ion-icon name="search" style="font-size: 36px;"></ion-icon>
+    </button>
+    <button ion-button icon-only >
+      <ion-icon name="cart" style="font-size: 36px;"></ion-icon>
+    </button>
+</ion-buttons>
+</ion-toolbar>
+    <ion-toolbar>
+        <ion-title text-center>CheckOut</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content padding>
+        <ion-card padding>
+
+        <p style="font-size: 24px;">Order Summary</p>
+
+    <p style="font-size: 22px; color: #d50000">Total: {{ total | currency:'KSH':true: '2.2-2'}} </p>
+    </ion-card>
+    <ion-item-divider></ion-item-divider>
+    <h3>Personal</h3>
+      <button ion-button large full type="button" (click)="confirm()">place order</button>
+
+        <!--<ion-item>
+            <ion-label>Email</ion-label>
+            <ion-input type="email"></ion-input>
+        </ion-item> -->
+
+    <!--<h3>Delivery</h3>
+    <ion-list inset>
+        <ion-item>
+            <ion-label>Delivery address</ion-label>
+            <ion-input type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Region</ion-label>
+            <ion-select>
+                <ion-option *ngFor="let region of regions">{{ region }}</ion-option>
+            </ion-select>
+        </ion-item>
+        <h4>OR</h4>
+        <ion-item>
+          <ion-label>Pickup in store</ion-label>
+          <ion-checkbox ></ion-checkbox>
+        </ion-item>
+
+    </ion-list>
+		<h3>Payment</h3>
+		<ion-list>
+			<ion-item>
+				<ion-label>Cash On Delivery</ion-label>
+				<ion-checkbox ></ion-checkbox>
+			</ion-item>
+		</ion-list> -->
+
+    <ion-item-divider></ion-item-divider>
+        <div style="text-align: center">
+            <p class="md-title">How can we help?</p>
+            <p class="md-body-1">0736-400-044 | customerservice@riziki.com</p>
+            <ion-item-divider></ion-item-divider>
+            <p class="md-title">Riziki App</p>
+        </div>
+</ion-content>

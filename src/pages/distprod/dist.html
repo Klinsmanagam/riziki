@@ -1,0 +1,42 @@
+<ion-header>
+	<ion-toolbar>
+    	<button ion-button  menuToggle>
+	      <ion-icon name="menu" style="font-size: 36px;"></ion-icon>
+	    </button>
+    <ion-title  style="font-size: 36px;">Riziki</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <img src="{{ product.img_url }}">
+        <ion-card-content>
+            <ion-card-title>
+                {{product.img_title}}
+            </ion-card-title>
+            <ion-searchbar [(ngModel)]="autocomplete.input" 
+                           (ionInput)="updateSearchResults()" 
+                           placeholder="Search for a place">
+            </ion-searchbar>
+            <ion-list *ngIf="autocompleteItems.length > 0">
+                      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+                        {{ item.description }}
+                      </ion-item>
+            </ion-list>
+            <ion-card padding>
+                <h2>
+                    Distributors that serve {{ desc }}
+                </h2>
+                <hr>
+                <ion-card-content>
+                    <ion-list *ngIf="distributors.length > 0">
+                    <button ion-item *ngFor="let one of distributors" (click)="proDetail(product, one)">
+                         {{ one.bname }}
+                    </button>
+                </ion-list>
+                </ion-card-content>
+                    
+            </ion-card>
+            
+            </ion-card-content>
+    </ion-card>
+</ion-content>

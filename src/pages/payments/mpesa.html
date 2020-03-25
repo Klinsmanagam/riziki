@@ -1,0 +1,45 @@
+<ion-header>
+	<ion-toolbar>
+    	<button ion-button  menuToggle>
+	      <ion-icon name="menu" style="font-size: 36px;"></ion-icon>
+	    </button>
+    <ion-title text-center>Riziki</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-card>
+		
+					<img src="./assets/m-pesa_logo.png" />
+				
+	</ion-card>
+    <ion-card>
+        <ion-card-header>
+              
+        </ion-card-header>
+       
+      <ion-card-content>
+		<p>1.Go to the M-PESA menu on your phone</p>
+		<p>2.Select PayBill Option : Enter Business Number: 510800</p>
+		<p>3.Enter JD637779 as the Account Number</p>
+		<p>4.Enter the EXACT amount <span style="color: #d50000">({{ total | currency:'KSH':true:'2.2-2' }} )
+		</span></p>
+		<p>5.Enter your PIN and then send the money</p>
+		<p>6.Complete your transaction on your phone</p>
+		<p>7.You will receive a transaction confirmation SMS from MPESA.</p>
+		<p>8.Then click on the <strong>Confirm Payment Done</strong> button below</p>
+		<br>
+		<br>
+		<button ion-button full>Confirm Payment Done</button>
+  	  </ion-card-content>
+            
+    </ion-card>
+    <ion-item-divider></ion-item-divider>
+                    <div style="text-align: center">
+                        <p class="md-title">How can we help?</p>
+                    <p class="md-body-1">020-123-456 | customerservice@riziki.com</p>
+                        
+                        <ion-item-divider></ion-item-divider>
+                         
+                            <p class="md-title">Riziki App</p>
+                    </div>
+</ion-content>

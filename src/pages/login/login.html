@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-toolbar id="tool">
+		<ion-buttons item-left>
+		<button ion-button icon-only (click)="back()">
+ 		 <ion-icon name="arrow-back"></ion-icon>
+ 	 </button>
+ </ion-buttons>
+    <ion-title text-center
+      style="font-size: 36px;
+       letter-spacing: 3px;">Riziki Store</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div style="border-style: solid;
+	                    border-width: 1px;
+											border-radius: 10px;
+											border-color: red;
+											padding: 10px;" >
+	<form [formGroup]="loginForm" (ngSubmit)="login()"  novalidate>
+
+	  <ion-item>
+	    <ion-label for="">Username</ion-label>
+	    <ion-input type="text" formControlName="username"></ion-input>
+	  </ion-item>
+	  <ion-item>
+	    <ion-label for="">Password</ion-label>
+	    <ion-input type="password" formControlName="password"></ion-input>
+	  </ion-item>
+
+	<div padding>
+		<button ion-button block round large type="submit">login</button>
+	</div>
+	</form>
+</div>
+</ion-content>

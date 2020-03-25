@@ -1,0 +1,100 @@
+<ion-header>
+	<ion-toolbar id="tool">
+    	<button ion-button  menuToggle>
+	      <ion-icon name="menu"></ion-icon>
+	    </button>
+    <ion-title text-center
+      >Riziki</ion-title>
+    <ion-buttons end padding>
+<!--
+			<button ion-button icon-left (click)="toSearch()" style="font-size: 18px;">
+				<ion-icon name="search" style="font-size: 36px;"></ion-icon>
+			</button>
+-->
+			    <button ion-button icon-left (click)="toCart()" style="font-size: 18px;">
+			      <ion-icon name="cart" ></ion-icon>
+			      {{ total }}
+			    </button>
+                
+          <button ion-button icon-only (click)="presentPopover($event)" style="font-size: 18px;">
+			      <ion-icon name="more" ></ion-icon>
+			      {{ total }}
+			    </button>
+			</ion-buttons>
+   </ion-toolbar>
+    <ion-toolbar>
+        <button ion-button block icon-start (click)="toSearch()"  style="background-color: #fff; color: #757575;">
+				<ion-icon name="search" style="font-size: 36px; color: #757575;"></ion-icon>
+                Search products
+        </button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+ <img   style="height: 100px; width: 100%;" src="{{ banners.photo }}"  >
+ <br>
+  <ion-slides #banner autoplay="1000"
+							speed="1000" loop="true"
+							paginationType="bullets"
+							pager="true"
+							style="height: 38%; width: 100%;" >
+		<ion-slide *ngFor="let one of images">
+			  <img src="{{one}}">
+		</ion-slide>
+	</ion-slides>
+	<br>
+
+	<ion-scroll scrollX="true" style="width: 100%; height:10%" >
+        <ion-row nowrap class="headerChip">
+          <div *ngFor="let single of brandy; let idx = index">
+          <ion-chip>
+						<ion-avatar>
+					    <img src="{{ single }}">
+					  </ion-avatar>
+          </ion-chip>
+          </div>
+        </ion-row>
+     </ion-scroll>
+
+	<hr>
+	<h3 style="padding-left: 20px;"> Categories </h3>
+	<hr>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-6 *ngFor="let one of categories">
+                
+				<ion-card style="padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"
+                          (click)="getCategory(one)">
+                    <span>{{ one.cat_title }}</span>
+                    <br>
+                    <img src="{{ one.cat_img  }}" style="width: 40px; height: 40px;"> 
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<hr>
+	<h3 style="padding-left: 20px;">Best Sellers</h3>
+	<hr>
+	<ion-scroll scrollX="true" style="width: 100%; height:50%">
+		<ion-row nowrap class="scroll-item">
+	  <ion-col col-6 *ngFor="let item of items">
+
+		 <ion-card padding>
+		   <img src="{{ item.photo }}" style="width: 130px; height: 50%;">
+
+			 <ion-card-title>
+				   <p> {{ item.prodtitle }} </p>
+			   </ion-card-title>
+			<button ion-button medium (click)="detail($event, item)" icon-end>
+								BUY NOW
+				<ion-icon name="cart" ></ion-icon>
+             </button>
+		</ion-card>
+
+	    </ion-col>
+   </ion-row>
+	</ion-scroll>
+</ion-content>
+

@@ -1,0 +1,74 @@
+<ion-header>
+	<ion-toolbar>
+    	<button ion-button  menuToggle>
+	      <ion-icon name="menu" style="font-size: 36px;"></ion-icon>
+	    </button>
+    <ion-title  style="font-size: 36px;">Riziki</ion-title>
+    </ion-toolbar>
+    <!--<ion-toolbar>
+      <ion-buttons padding>
+    <button ion-button icon-only >
+      <ion-icon name="search" style="font-size: 36px;"></ion-icon>
+    </button>
+    <button ion-button icon-only >
+      <ion-icon name="cart" style="font-size: 36px;"></ion-icon>
+    </button>
+</ion-buttons>
+    </ion-toolbar>-->
+</ion-header>
+<ion-content padding>
+		<ion-card>
+			<ion-card-header>
+      My Orders
+		  </ion-card-header>
+			<button ion-item *ngFor="let order of orders" (click)="goDetail(order)"> 
+      <ion-icon name="arrow-dropright" item-end></ion-icon>
+				<h2>Order Date: {{ order.dateCreated | date:'fullDate' }}</h2>
+				<h2>Order No: {{ order.order_no }}</h2>
+  	  </button>
+		</ion-card>
+		<!-- <ion-card padding>
+			<ion-card-title>My Orders</ion-card-title>
+		</ion-card>
+
+   <ion-card *ngFor="let one of orders" padding>
+		 <div>
+		 <div style="float: left">
+			<h2>Order Date: {{ one.dateCreated | date:'fullDate' }}</h2>
+			<h2>Order No: {{ one.order_no }}</h2>
+			<h3>Order total: {{ one.total }}</h3>
+			<h4>Order Status:{{ one.status }}</h4>
+		</div>
+		<button ion-button icon-only (click)="goDetail(one)">
+			<ion-icon name="arrow-dropright-circle" style="background-color: none !important;">
+			</ion-icon>
+		</button>
+			 <div style="float: right">
+			<button ion-button (click)="showHide1 = !showHide1" icon-end>
+				Products
+				<ion-icon name="arrow-dropdown"></ion-icon>
+		  </button>
+			<div *ngIf="one.status != 'received'">
+			<button ion-button (click)="received(one)" icon-end>
+				Confirm Received
+		  </button>
+		</div>
+		</div>
+	</div>
+			<div *ngIf="showHide1 == true">
+				<ion-card *ngFor="let product of one.products" padding>
+				<div>
+					<div style="float: left">
+					<img src="{{ product.photo }}" height="120" width="120" />
+				</div>
+					<div>
+						<h2>{{ product.name }}</h2>
+						<h3>Qtty: {{ product.qtty }}</h3>
+						<h4>Amount Ksh:{{ product.price }} </h4>
+					</div>
+				</div>
+				</ion-card>
+			</div>
+   </ion-card> -->
+
+</ion-content>

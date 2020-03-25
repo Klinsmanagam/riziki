@@ -1,0 +1,99 @@
+<ion-header>
+	<ion-toolbar>
+    	<button ion-button  menuToggle>
+	      <ion-icon name="menu" style="font-size: 36px;"></ion-icon>
+	    </button>
+    <ion-title  style="font-size: 36px;">Riziki</ion-title>
+    </ion-toolbar>
+    <!--<ion-toolbar>
+      <ion-buttons padding>
+    <button ion-button icon-only >
+      <ion-icon name="search" style="font-size: 36px;"></ion-icon>
+    </button>
+    <button ion-button icon-only >
+      <ion-icon name="cart" style="font-size: 36px;"></ion-icon>
+    </button>
+</ion-buttons>
+    </ion-toolbar>-->
+</ion-header>
+<ion-content padding>
+
+  <ion-card padding>
+    <ion-card-title>
+		<h2>Order Total: <strong style="color: #F44336;">KSH {{ order.total }}</strong></h2>
+    <h2>Order No   : {{ order.order_no }}</h2>
+		<h2>Order Date : {{ order.dateCreated | date:'fullDate' }}</h2>
+		<h2 *ngIf="status">Order Status: <strong style="color: #F44336;"> {{ status | uppercase }} </strong></h2>
+    </ion-card-title>
+    <ion-card-content>
+
+	<hr>
+
+		<!-- <ion-list *ngIf="order.status == 'received'">
+			<ion-item *ngFor="let one of order.products">
+		     <ion-thumbnail item-start>
+		       <img src="{{ one.photo }}">
+		     </ion-thumbnail>
+				 <br>
+		     <h3>Product: {{ one.name }}</h3>
+		     <p>Units   : {{ one.qtty }}</p>
+				 <p>Amount  : KSH {{ one.price }}</p>
+				 <p>Received: {{ one.received }} </p>
+
+		   </ion-item>
+		</ion-list>  -->
+
+     <ion-list>
+	<form #confirmForm="ngForm" (ngSubmit)="confirm(order)">
+			<ion-item *ngFor="let one of order.products">
+		     <ion-thumbnail item-start>
+		       <img src="{{ one.photo }}">
+		     </ion-thumbnail>
+				 <br>
+		     <h3>Product: {{ one.name }}</h3>
+		     <p>Units   : {{ one.qtty }}</p>
+				 <p>Amount  : KSH {{ one.price }}</p>
+				 <p>Received: {{ one.received }}</p>
+				 <p>Status  : <strong style="color: #F44336;"> {{ one.status }} </strong> </p>
+				 <label *ngIf="one.received == undefined || one.received == ' '">
+					 Received:
+					<input type="number" required [(ngModel)]="one.received"
+					  name="received" [value]="1"
+					 style="width: 50px; height: 30px; text-align: center;
+									border-style:solid;
+									 border-radius: 5px;
+									 border-color: #F44336;
+									 border-width: 2px;
+									 font-size: 16px;
+									 font-style: bold;
+									 color: #F44336; ">
+				 </label>
+				 <button type="button" (click)="add(one)"
+				       ion-button icon-only outline>
+				 <ion-icon name="add"></ion-icon>
+					</button>
+
+					<button type="button" (click)="remove(one)"
+ 				       ion-button icon-only outline>
+ 				 <ion-icon name="remove"></ion-icon>
+ 					</button>
+					<button type="submit"
+ 				 *ngIf="one.received != undefined && one.received != ' '"
+ 				       ion-button icon-only outline>
+ 				 <ion-icon name="checkmark"></ion-icon>
+ 					</button>
+		   </ion-item>
+
+			 <br>
+			 <!-- <button type="submit" [disabled]="!confirmForm.form.valid"
+			 *ngIf="order.status != 'received'"
+			       ion-button
+			 full large>
+				 CONFIRM RECEIVED</button> -->
+			</form>
+     </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

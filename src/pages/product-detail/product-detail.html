@@ -1,0 +1,111 @@
+<ion-header>
+	<ion-toolbar>
+    	<button ion-button  menuToggle>
+	      <ion-icon name="menu" style="font-size: 36px;"></ion-icon>
+	    </button>
+            <ion-title text-center
+                style="font-size: 36px;
+               letter-spacing: 3px;"
+               (click)="home()">
+               Riziki</ion-title>
+    <ion-buttons right padding>
+    <button ion-button icon-only >
+      <ion-icon name="search" style="font-size: 36px;"></ion-icon>
+    </button>
+    <button ion-button icon-only >
+      <ion-icon name="cart" style="font-size: 36px;"></ion-icon>
+    </button>
+</ion-buttons>
+</ion-toolbar>
+    <ion-toolbar>
+        <ion-searchbar></ion-searchbar>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-card text-center>
+            <img src="{{ product.photo }}"
+                    style="width: 80%;
+                           padding-left: 80px;
+                           padding-top:20px;
+                           height: 80%">
+                    <ion-card-content>
+                        <ion-card-title>
+                            {{ product.prodtitle }}
+                        </ion-card-title>
+
+										<form #cartForm="ngForm" (ngSubmit)="add(item)">
+											<h2>Select Product</h2>
+                    <ion-item>
+
+                        <ion-label floating style="font-size: 24px;">
+                        	{{ product.prodtitle }}
+                        </ion-label>
+
+                        <ion-select [(ngModel)]="item.one" required name="one"
+																		interface="action-sheet">
+	                        <ion-option *ngFor="let one of product.variations" [value]="one" >
+	                            <h2>{{ one.name }} - KSH {{ one.price }}</h2>
+	                         </ion-option>
+                        </ion-select>
+
+                     </ion-item>
+
+                    <br>
+
+                        <p style="font-size: 22px;"> Quantity</p>
+                        <input [(ngModel)]="item.qtty" required name="qtty"
+                                
+                        style=" border-style:solid;
+                                border-width: 1px;
+                                border-radius: 3px;
+                                font-size: 22px;
+                                text-align: center;
+                                width: 50px; height: 50px;">
+
+                        <button 
+                                type="button" 
+                                ion-button icon-only clear style="height: 50px;">
+                            <ion-icon name="add"
+                            style="font-size: 36px;
+                            padding-bottom: 10px;
+                            padding-right: 10px;">
+                           </ion-icon>
+                        </button>
+
+                     <br>
+                     <br>
+                    <button ion-button icon-right large block  type="submit"
+										[disabled]="!cartForm.form.valid ">
+                        ADD TO CART
+                            <ion-icon name="cart" style="font-size: 36px;"></ion-icon>
+                    </button>
+									</form>
+                    <ion-item-divider></ion-item-divider>
+                    <!--<ion-card-title> Customers also purchased.. </ion-card-title>
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-6 *ngFor="let product of promos">
+                                <ion-card>
+                                    <img src="{{ product.link }}"
+                                    style="width: 120px; height: 150px">
+                                    <ion-card-content>
+                                        <ion-card-title>
+                                            <p class="md-body-1">{{ product.name }}</p>
+                                        </ion-card-title>
+                                    </ion-card-content>
+                                </ion-card>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>-->
+                    <ion-item-divider></ion-item-divider>
+                        <ion-card-title>
+                            <p class="md-title">How can we help?</p>
+                    <p class="md-body-1">0736-400-044  | customerservice@riziki.com</p>
+                        </ion-card-title>
+                        <ion-item-divider></ion-item-divider>
+                         <ion-card-title>
+                            <p class="md-title">Riziki App</p>
+                        </ion-card-title>
+                    </ion-card-content>
+                </ion-card>
+</ion-content>
